@@ -17,8 +17,8 @@ import (
 	//log "github.com/sirupsen/logrus"
 	"testing"
 
+	dm "github.com/dhf0820/ids_document/pkg"
 	"github.com/joho/godotenv"
-	dm "gitlab.com/dhf0820/ids_document_service/pkg"
 	//m "github.com/dhf0820/ids_model"
 )
 

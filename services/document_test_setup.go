@@ -7,7 +7,7 @@ import (
 	"fmt"
 	//"github.com/davecgh/go-spew/spew"
 	//"context"
-	//docPB "gitlab.com/dhf0820/ids_document_service/protobufs/docPB"
+	//docPB "github.com/dhf0820/ids_document/protobufs/docPB"
 	//"net"
 	//"testing"
 	"os"

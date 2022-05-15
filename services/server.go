@@ -9,7 +9,7 @@ import (
 
 	//common "gitlab.com/dhf0820/ids_core_service/pkg"
 	//"github.com/joho/godotenv"
-	//"gitlab.com/dhf0820/ids_document_service"
+	//"github.com/dhf0820/ids_document"
 	"net/http"
 	"os"
 	"sync"

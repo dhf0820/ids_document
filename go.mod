@@ -1,6 +1,6 @@
-module gitlab.com/dhf0820/ids_document_service
+module github.com/dhf0820/ids_document
 
-replace gitlab.com/dhf0820/ids_document_service => ../ids_document_service
+replace github.com/dhf0820/ids_document => ../ids_document_service
 
 go 1.17
 

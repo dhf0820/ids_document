@@ -1,8 +1,7 @@
 package services
 
-import (
-	//"fmt"
-	//pkg "gitlab.com/dhf0820/ids_document_service/pkg"
+//"fmt"
+//pkg "github.com/dhf0820/ids_document/pkg"
 
 //	"bytes"
 //	"fmt"
@@ -13,7 +12,7 @@ import (
 //	"github.com/google/uuid"
 //
 //	log "github.com/sirupsen/logrus"
-//	dm "gitlab.com/dhf0820/ids_document_service/pkg"
+//	dm "github.com/dhf0820/ids_document/pkg"
 //	//"go.mongodb.org/mongo-driver/bson"
 //	"go.mongodb.org/mongo-driver/bson/primitive"
 //	//"go.mongodb.org/mongo-driver/mongo"
@@ -21,7 +20,7 @@ import (
 //	"go.mongodb.org/mongo-driver/mongo/options"
 //	"google.golang.org/grpc/codes"
 //	"google.golang.org/grpc/status"
-)
+
 //
 ////ImageStore and interface to handle storing a documents image various ways
 //type ImageSaver interface {

@@ -5,7 +5,7 @@ import (
 
 	//"github.com/joho/godotenv"
 
-	"gitlab.com/dhf0820/ids_document_service/services"
+	"github.com/dhf0820/ids_document/services"
 
 	log "github.com/sirupsen/logrus"
 	// mod "github.com/dhf0820/ids_model"
