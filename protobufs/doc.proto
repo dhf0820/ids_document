@@ -1,0 +1,220 @@
+syntax = "proto3";
+
+package document_service;
+
+option go_package = "./protobufs/docPB/;docPB";
+
+message Client {
+    string source       = 1;
+    string source_id    = 2;  // whatever the sources ID for this object being created
+    string external_id  = 3; 
+}
+
+message Customer {
+    string  name        = 1;
+    string  code        = 2;
+    string  facility    = 3;
+}
+
+message CorrelationID {
+    string reference_type   =    1;
+    string correlation_id   =    2;
+    string correlation_system =  3;
+    string correlation_system_doc_id = 4;
+    string correlation_system_image_url = 5;
+    string correlation_system_document_url = 6;
+    string correlation_system_facility = 7;
+    string version                     = 8;
+    int64 CreateTime                  = 9;
+}
+
+message Document {
+    Client client = 1;
+    Customer customer = 2;
+    repeated CorrelationID correlation_ids = 3;
+    string image_repository = 4;
+    string system = 5;
+    string doc_class = 6;           // Document class of image
+    string description = 7;         // Description provided by facility
+    string image_type = 8;         // type of image, PDF, FHIR
+    string version = 9; 
+    string date_of_service = 10;    // yyyy-mm-dd
+    string document_date = 11;
+    int64 updated_at = 12;          // Mon Jan _2 15:04:05 MST 2006
+    int64 deleted_at = 13;          // Mon Jan _2 15:04:05 MST 2006
+    string id       = 14;               // hex value of db id
+}
+
+
+message DocumentImage {
+    string doc_id = 1;
+    string image_id = 2;
+}
+
+message UpdateDocumentImageRequest {
+    string doc_id = 1;
+    string image_id = 2;
+    string image_type = 3;
+    string image_repository = 4;
+    string url = 5;
+}
+
+message UploadImageRequest {
+    oneof data {
+        ImageInfo info = 1;
+        bytes chunk = 2;
+    }
+}
+
+message ImageRepository {
+    string id = 1;
+    string name  = 2;
+    string image_url  = 3;
+    string user_id = 4;
+    string user_password = 5;
+    string image_pattern = 6;           // {type:%s/id:%s} or what ever is required. this would be image_url/pdf/789
+    string document_url  = 7;
+    string document_pattern = 8;
+}
+
+message ImageInfo {
+    string image_name = 1;
+    string image_type = 2;
+    string document_id = 3;
+   // Document document = 4;
+}
+
+message UploadImageResponse {
+    uint32 size = 1;
+    string doc_id = 2;
+    string image_id = 3;
+}
+
+message GetImageRequest {
+    string doc_id = 1;              // if not provided the next two are
+    string repository = 2;          // if doc_id provided, this is ignored. We get it from the documentID
+    string image_id = 3;            // if doc_id provided, this is ignored.
+}
+
+message GetImageResponse {
+    oneof data {
+        Results results = 1;
+        bytes chunk = 2;
+    }
+}
+
+message Results {
+    uint32 status_code = 1;
+    string message = 2;
+}
+
+message Chunk {
+    bytes content = 1;
+}
+
+message UploadDocumentRequest{
+    string doc_id = 1;
+    int32 length = 2;
+    int32 chunk_size = 3;
+    bytes image = 4;
+}
+
+message UploadDocumentResponse {
+    string doc_id =  1;
+    int32 length = 2;
+    string status = 3;
+}
+
+message Image {
+    string id = 1;          // Database id of document to retrieve the image first 2 characters of image_id determine source
+    bytes image = 2;
+}
+
+
+
+message AddRequest {
+    Document document = 1;
+}
+
+message AddResponse {
+    string id = 1;
+}
+
+message UpdateDocumentRequest {
+    Document document = 1;
+}
+
+message UpdateDocumentResponse {
+    string id = 1;
+}
+
+message DeleteRequest {
+    string id = 1;
+}
+
+message DeleteResponse {
+    uint32 status_code = 1;
+    string message = 2;
+}
+
+message GetRequest {
+    string id = 1;
+    string release_id = 2;
+}
+
+message GetResponse {
+    repeated Document release_documents = 1;
+}
+
+message DocumentForIDRequest {
+    string id = 1;              // Currently only for an id
+    string client_id = 2;
+}
+
+message DocumentCountForReleaseRequest {
+    string release_id = 1;
+    string client_id = 2;
+}
+
+message DocumentCountForReleaseResponse {
+    int64 number = 1;
+}
+
+message DocumentsForReleaseRequest {
+    string release_id = 1;
+    string client_id = 2;
+}
+
+message DocumentsForReleaseResponse {
+    string release_id = 1;
+    repeated ReleaseDocument release_documents = 2;
+}
+
+message ReleaseDocument {
+    string id = 1;
+    string mrn = 2;
+    string doc_class = 3;
+    string description = 4;
+    string image_type = 5;
+    string created_at = 6;
+}
+
+message DocumentForIDResponse {
+    Document document = 1;
+}
+
+message NoResponse {
+
+}
+
+service DocumentService {
+    rpc Add (AddRequest) returns(AddResponse){}
+    // //rpc UpdateDocument (UpdateDocumentRequest) returns(UpdateDocumentResponse){}
+    // rpc Delete (DeleteRequest) returns(DeleteResponse){}
+    // rpc DocumentForID (DocumentForIDRequest) returns(DocumentForIDResponse){}
+    // //rpc DocumentsForRelease (DocumentsForReleaseRequest) returns(DocumentsForReleaseResponse){}
+    // //rpc DocumentCountForRelease (DocumentCountForReleaseRequest) returns(DocumentCountForReleaseResponse){}
+    // rpc GetImage (GetImageRequest) returns(stream GetImageResponse){}
+    // rpc UpdateDocumentImageID(UpdateDocumentImageRequest) returns (NoResponse){} // Will be removed
+    // rpc UploadImage (stream UploadImageRequest) returns(UploadImageResponse) {}
+}

@@ -1,0 +1,30 @@
+version: "3.7"
+
+services:
+  document:
+    image: vertisoft/ids_document_linux:211112.8 
+    #restart: never
+    #    environment:
+    #      MONGO_INITDB_ROOT_USERNAME: dhf
+    #      MONGO_INITDB_ROOT_PASSWORD: Sacj0nhat1
+    ports:
+      - "0.0.0.0:19912:19912"
+    environment:
+   #  - CONFIG_ADDRESS=http://test_core:19900/api/v1/
+      - SERVICE_NAME=document
+      - SERVICE_VERSION=local_test
+      - COMPANY=demo
+      - CORE_NAME_PORT=http://test_core:19900
+      - API=/api/v1/
+    volumes:
+      - document_data:/doc_data
+      - core_data:/data
+    networks:
+      - ids_attachable
+
+volumes:
+  document-data:
+
+networks:
+  ids_attachable:
+    external: true

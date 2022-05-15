@@ -1,0 +1,31 @@
+version: "3.7"
+
+services:
+  document:
+    image: dhf0820/document_arm64:latest  #220316.0
+    #restart: never
+    environment:
+      CONFIG_ADDRESS: http://vs_config:9200/api/rest/v1
+      COMPANY: demo
+      SERVICE_VERSION: local_test
+      #CORE_DB: mongodb+srv://dhfadmin:Sacj0nhati@cluster1.24b12.mongodb.net/demo?retryWrites=true&w=majority
+    ports:
+      - "0.0.0.0:19203:9200"
+    # env_file:
+    #   - .env.core
+    volumes:
+      - document-data:/data
+    networks:
+      - ids_attachable
+
+volumes:
+  core-data:
+  delivery-data:
+  release-data:
+  document-data:
+  ca_connector-data:
+  email-data:
+
+networks:
+   ids_attachable:
+     external: true
