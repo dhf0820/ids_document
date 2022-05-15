@@ -7,7 +7,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 
 # This program built for i386-apple-darwin11.3.0
 
-# Make data base, printed on Sun May 15 13:52:43 2022
+# Make data base, printed on Sun May 15 14:53:30 2022
 
 # Variables
 
@@ -15,6 +15,8 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 <D = $(patsubst %/,%,$(dir $<))
 # automatic
 ?F = $(notdir $?)
+# environment
+ELECTRON_NO_ATTACH_CONSOLE = 1
 # environment
 VSCODE_LOG_NATIVE = false
 # automatic
@@ -52,9 +54,9 @@ __CFBundleIdentifier = com.microsoft.VSCode
 # environment
 INFOPATH = /opt/homebrew/share/info:
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /var/folders/d5/_rdllmh520s_t3zrf73qndth0000gn/T/vscode-ipc-ef4b8add-fab7-4fa2-8b88-43fb307b5412.sock
+VSCODE_IPC_HOOK_EXTHOST = /var/folders/d5/_rdllmh520s_t3zrf73qndth0000gn/T/vscode-ipc-6437eeac-a9b2-454f-8f4d-db0647cc1d3d.sock
 # environment
-VSCODE_CWD = /
+VSCODE_CWD = /Users/dhf/Dropbox/development/ids/services/ids_document
 # environment
 GOPROXY = https://proxy.golang.org,direct
 # environment
@@ -92,6 +94,8 @@ HOME = /Users/dhf
 # default
 MAKEFILEPATH := /Applications/Xcode.app/Contents/Developer/Makefiles
 # environment
+VSCODE_CLI = 1
+# environment
 VSCODE_CODE_CACHE_PATH = /Users/dhf/Library/Application Support/Code/CachedData/57fd6d0195bb9b9d1b49f6da5db789060795de47
 # environment
 LOGNAME = dhf
@@ -105,12 +109,14 @@ VSCODE_HANDLES_UNCAUGHT_ERRORS = true
 TEST = dhf0820
 # environment
 XPC_FLAGS = 0x0
+# environment
+COLORTERM = truecolor
 # default
 MAKE = $(MAKE_COMMAND)
-# default
-MAKECMDGOALS := all
 # environment
-SHLVL = 1
+LC_TERMINAL = iTerm2
+# environment
+SHLVL = 4
 # default
 MAKE_VERSION := 3.81
 # environment
@@ -119,10 +125,16 @@ USER = dhf
 PROD = vertisoft
 # makefile
 .DEFAULT_GOAL := api
+# default
+MAKECMDGOALS := all
+# environment
+TERM_SESSION_ID = w0t2p0:E5E7B3BB-F849-4776-A1B8-E69E1F2AE59C
 # automatic
 %D = $(patsubst %/,%,$(dir $%))
 # default
 MAKE_COMMAND := /Applications/Xcode.app/Contents/Developer/usr/bin/make
+# environment
+TERM_PROGRAM = iTerm.app
 # default
 .VARIABLES := 
 # environment
@@ -140,7 +152,11 @@ MFLAGS = -Rrqp
 # automatic
 *D = $(patsubst %/,%,$(dir $*))
 # environment
-XPC_SERVICE_NAME = application.com.microsoft.VSCode.31977268.31977274
+TERM_PROGRAM_VERSION = 3.4.15
+# environment
+XPC_SERVICE_NAME = application.com.microsoft.VSCode.31977268.31977274.E4485A30-DDCA-4C49-8F60-A90FF972D758
+# environment
+LC_TERMINAL_VERSION = 3.4.15
 # environment
 HOMEBREW_PREFIX = /opt/homebrew
 # automatic
@@ -148,7 +164,11 @@ HOMEBREW_PREFIX = /opt/homebrew
 # automatic
 +F = $(notdir $+)
 # environment
+ITERM_SESSION_ID = w0t2p0:E5E7B3BB-F849-4776-A1B8-E69E1F2AE59C
+# environment
 HOMEBREW_REPOSITORY = /opt/homebrew
+# environment
+COLORFGBG = 7;0
 # environment
 __CF_USER_TEXT_ENCODING = 0x1F5:0x0:0x0
 # environment
@@ -157,6 +177,8 @@ COMMAND_MODE = unix2003
 MAKEFILES := 
 # automatic
 <F = $(notdir $<)
+# environment
+ITERM_PROFILE = Default
 # environment
 LC_ALL = C
 # makefile (from `Makefile', line 12)
@@ -174,9 +196,11 @@ ARC = amd64
 # environment
 LANG = C
 # environment
+TERM = xterm-256color
+# environment
 VSCODE_PID = 38961
 # variable set hash-table stats:
-# Load=82/1024=8%, Rehash=0, Collisions=6/114=5%
+# Load=94/1024=9%, Rehash=0, Collisions=9/126=7%
 
 # Pattern-specific Variable Values
 
@@ -291,11 +315,12 @@ tidy:
 
 # # of strings in strcache: 1
 # # of strcache buffers: 1
-# strcache size: total = 4096 / max = 4096 / min = 4096 / avg = 4096
-# strcache free: total = 4087 / max = 4087 / min = 4087 / avg = 4087
-
-# Finished Make data base on Sun May 15 13:52:43 2022
-
  
 make: *** No rule to make target `all'.  Stop.
 
+# strcache size: total = 4096 / max = 4096 / min = 4096 / avg = 4096
+# strcache free: total = 4087 / max = 4087 / min = 4087 / avg = 4087
+
+# Finished Make data base on Sun May 15 14:53:30 2022
+
+ 
