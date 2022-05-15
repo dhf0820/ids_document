@@ -1,6 +1,6 @@
 module github.com/dhf0820/ids_document
 
-replace github.com/dhf0820/ids_document => ../ids_document_service
+replace github.com/dhf0820/ids_document => ../ids_document
 
 go 1.17
 
